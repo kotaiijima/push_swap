@@ -6,20 +6,20 @@
 /*   By: kiijima <kiijima@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/19 18:49:42 by kiijima           #+#    #+#             */
-/*   Updated: 2022/08/23 13:29:30 by kiijima          ###   ########.fr       */
+/*   Updated: 2022/08/23 16:44:33 by kiijima          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
 
-void	setting_index(t_list *stack_a, int index)
+void	setting_index(t_list **stack_a, int index)
 {
 	//setting index
 	t_list *head;
 	t_list *min;
 
-	head = stack_a;
+	head = *stack_a;
 	min = NULL;
 	while (head)
 	{
@@ -44,7 +44,7 @@ void	free_str(char **str)
 	return ;
 }
 
-int	init_stack_a(t_list *stack_a, int argc, char **argv)
+int	init_stack_a(t_list **stack_a, int argc, char **argv)
 {
 	//initialize stack to list
 	t_list	*new;
@@ -55,20 +55,17 @@ int	init_stack_a(t_list *stack_a, int argc, char **argv)
 
 	args = argv;
 	check_args(args);
-	printf("start.\n");
-	stack_a = ft_lstnew(ft_atoi(args[1]));
+	*stack_a = ft_lstnew(ft_atoi(args[1]));
 	i = 2;
 	printf("before list set\n");
 	while (args[i])
 	{
 		new = ft_lstnew(ft_atoi(args[i]));
-		ft_lstadd_back(&stack_a, new);
+		ft_lstadd_back(stack_a, new);
 		i++;
 	}
-	printf("list set ok.\n");
 	index = 0;
-	stack_a_size = ft_lstsize(stack_a);
-	printf("stack_size:%d\n",stack_a_size);
+	stack_a_size = ft_lstsize(*stack_a);
 	while (index < stack_a_size)
 	{
 		setting_index(stack_a, index);
@@ -98,14 +95,14 @@ bool	check_sort(t_list *stack_a)
 	return true;
 }
 
-void	free_stack(t_list *stack)
+void	free_stack(t_list **stack)
 {
 	t_list	*tmp;
 
-	while (stack)
+	while (*stack)
 	{
-		tmp = stack;
-		stack = stack->next;
+		tmp = *stack;
+		*stack = (*stack)->next;
 		free(tmp);
 	}
 }
@@ -114,7 +111,6 @@ int main(int argc, char **argv)
 {
 	t_list	*stack_a;
 	t_list	*stack_b;
-	int		index;
 	int		stack_a_size;
 
 	if (argc < 2)
@@ -122,15 +118,16 @@ int main(int argc, char **argv)
 		printf("invalid argment.\n");
 		return 0;
 	}
-	stack_a_size = init_stack_a(stack_a, argc, argv);
+	stack_a_size = init_stack_a(&stack_a, argc, argv);
 	if (check_sort(stack_a) || stack_a_size == 1)
 		return 0;
 	printf("sort_check ok.\n");
 	stack_b = NULL;
-	put_list(stack_a);
+	// put_list(stack_a);
 	// if (stack_a_size <= 5)
+
 	// else
-	// free_stack(stack_a);
+
+	free_stack(&stack_a);
 	return 0;
 }
-

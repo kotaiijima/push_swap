@@ -6,7 +6,7 @@
 /*   By: kiijima <kiijima@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/19 18:50:57 by kiijima           #+#    #+#             */
-/*   Updated: 2022/08/23 13:29:16 by kiijima          ###   ########.fr       */
+/*   Updated: 2022/08/23 17:59:50 by kiijima          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ typedef struct s_list
 	int				value;
 	int				index;
 	struct s_list	*next;
+	struct s_list	*prev;
 }				t_list;
 
 # define DEFAULT_INDEX -1

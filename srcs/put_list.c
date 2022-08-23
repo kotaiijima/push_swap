@@ -1,44 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   under_five_pattern.c                               :+:      :+:    :+:   */
+/*   put_list.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kiijima <kiijima@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/22 20:31:56 by kiijima           #+#    #+#             */
-/*   Updated: 2022/08/23 12:34:29 by kiijima          ###   ########.fr       */
+/*   Created: 2022/08/23 13:25:21 by kiijima           #+#    #+#             */
+/*   Updated: 2022/08/23 14:53:41 by kiijima          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-int	search_index(t_list *stack_a, int num)
+void	put_list(t_list *stack)
 {
-	int	i;
 	t_list	*head;
+	int		i;
 
+	head = stack;
 	i = 0;
-	head = stack_a;
 	while (head)
 	{
-		if (head->index == num)
-			break;
+		printf("list %d of value: %d\n",i,head->value);
+		printf("list %d of index: %d\n",i,head->index);
+		head = head->next;
 		i++;
 	}
-	return (i);
-}
-
-under_five_pattern(t_list *stack_a, t_list *stack_b, int size)
-{
-	t_list	*head;
-	int		index_pos;
-
-	if (size > 3)
-	{
-		index_pos = search_index(stack_a, 0);
-		if (size == 5)
-			index_pos = search_index(stack_a, 1);
-
-	}
-
+	return ;
 }

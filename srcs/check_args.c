@@ -6,7 +6,7 @@
 /*   By: kiijima <kiijima@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 14:27:49 by kiijima           #+#    #+#             */
-/*   Updated: 2022/08/22 18:55:32 by kiijima          ###   ########.fr       */
+/*   Updated: 2022/08/23 21:42:41 by kiijima          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,9 @@ bool	check_num_and_over(const char *arg, long long *num)
 		*num = (*num * 10) + (arg[i] - '0');
 		i++;
 	}
-	if (INT_MAX < (int)*num)
+	if (minus)
+		*num *= -1;
+	if ((int)*num < INT_MIN || INT_MAX < (int)*num)
 		return (true);
 	return (false);
 }
@@ -53,6 +55,7 @@ void	check_args(char **args)
 	long long	*num;
 
 	i = 1;
+	num = NULL;
 	while (args[i])
 	{
 		if (check_num_and_over(args[i], num))
