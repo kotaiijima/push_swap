@@ -6,7 +6,7 @@
 /*   By: kiijima <kiijima@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/19 18:49:42 by kiijima           #+#    #+#             */
-/*   Updated: 2022/08/23 16:44:33 by kiijima          ###   ########.fr       */
+/*   Updated: 2022/08/24 12:22:07 by kiijima          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,7 @@ void	setting_index(t_list **stack_a, int index)
 	while (head)
 	{
 		if (head->index == DEFAULT_INDEX && (min == NULL || head->value < min->value))
-		{
 			min = head;
-		}
 		head = head->next;
 	}
 	min->index = index;
@@ -44,7 +42,7 @@ void	free_str(char **str)
 	return ;
 }
 
-int	init_stack_a(t_list **stack_a, int argc, char **argv)
+int	init_stack_a(t_list **stack_a, char **argv)
 {
 	//initialize stack to list
 	t_list	*new;
@@ -57,7 +55,6 @@ int	init_stack_a(t_list **stack_a, int argc, char **argv)
 	check_args(args);
 	*stack_a = ft_lstnew(ft_atoi(args[1]));
 	i = 2;
-	printf("before list set\n");
 	while (args[i])
 	{
 		new = ft_lstnew(ft_atoi(args[i]));
@@ -71,7 +68,6 @@ int	init_stack_a(t_list **stack_a, int argc, char **argv)
 		setting_index(stack_a, index);
 		index++;
 	}
-	printf("init_stack_a clear.\n");
 	return stack_a_size;
 }
 
@@ -114,20 +110,14 @@ int main(int argc, char **argv)
 	int		stack_a_size;
 
 	if (argc < 2)
-	{
-		printf("invalid argment.\n");
 		return 0;
-	}
-	stack_a_size = init_stack_a(&stack_a, argc, argv);
+	stack_a_size = init_stack_a(&stack_a, argv);
+	put_list(stack_a);
 	if (check_sort(stack_a) || stack_a_size == 1)
 		return 0;
-	printf("sort_check ok.\n");
 	stack_b = NULL;
-	// put_list(stack_a);
-	// if (stack_a_size <= 5)
-
-	// else
-
+	if (stack_a_size <= 5)
+		under_five_pattern(stack_a, stack_b, stack_a_size);
 	free_stack(&stack_a);
 	return 0;
 }

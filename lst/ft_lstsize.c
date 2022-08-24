@@ -6,7 +6,7 @@
 /*   By: kiijima <kiijima@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 09:53:37 by kiijima           #+#    #+#             */
-/*   Updated: 2022/08/21 23:14:05 by kiijima          ###   ########.fr       */
+/*   Updated: 2022/08/24 12:20:38 by kiijima          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ int		ft_lstsize(t_list *lst)
 	tmp = lst;
 	while (tmp)
 	{
-		i++;
 		tmp = tmp->next;
+		i++;
 	}
 	return (i);
 }
