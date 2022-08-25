@@ -7,9 +7,10 @@ LIBFT_PATH	=	./libft/
 SRCS_PATH	=	./srcs/
 LST_PATH	=	./lst/
 
-SRCS_FILES	=	check_args.c error.c get_index.c main.c put_list.c\
-				radix_sort.c under_five_pattern.c reverse_rotate.c rotate.c push.c swap.c
-LST_FILES	=	ft_lstadd_back.c ft_lstadd_front.c ft_lstnew.c \
+SRCS_FILES	=	check_args.c error.c main.c put_list.c\
+				radix_sort.c under_5_pattern.c reverse_rotate.c \
+				rotate.c push.c swap.c size_3_pattern.c
+LST_FILES	=	ft_lstadd_back.c ft_lstnew.c \
 				ft_lstlast.c ft_lstsize.c
 
 SRCS		=	$(addprefix $(SRCS_PATH), $(SRCS_FILES))

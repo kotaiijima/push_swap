@@ -6,13 +6,13 @@
 /*   By: kiijima <kiijima@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 09:53:04 by kiijima           #+#    #+#             */
-/*   Updated: 2022/08/22 18:25:39 by kiijima          ###   ########.fr       */
+/*   Updated: 2022/08/25 22:24:16 by kiijima          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-t_list *ft_lstnew(int value)
+t_list	*ft_lstnew(int value)
 {
 	t_list	*new;
 
@@ -22,7 +22,7 @@ t_list *ft_lstnew(int value)
 	new->value = value;
 	new->index = DEFAULT_INDEX;
 	new->next = NULL;
-	return(new);
+	return (new);
 }
 
 // int main()

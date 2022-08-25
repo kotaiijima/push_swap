@@ -6,7 +6,7 @@
 /*   By: kiijima <kiijima@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 21:47:11 by kiijima           #+#    #+#             */
-/*   Updated: 2022/08/24 12:35:07 by kiijima          ###   ########.fr       */
+/*   Updated: 2022/08/25 17:44:18 by kiijima          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,11 @@ void	rotate(t_list **stack)
 void	ra(t_list **stack_a)
 {
 	rotate(stack_a);
+	ft_putendl_fd("ra", 1);
 }
 
 void	rb(t_list **stack_b)
 {
 	rotate(stack_b);
+	ft_putendl_fd("rb", 1);
 }

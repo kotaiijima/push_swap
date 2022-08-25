@@ -6,7 +6,7 @@
 /*   By: kiijima <kiijima@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 14:27:49 by kiijima           #+#    #+#             */
-/*   Updated: 2022/08/23 22:21:28 by kiijima          ###   ########.fr       */
+/*   Updated: 2022/08/25 22:21:29 by kiijima          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,11 @@
 
 bool	check_num_and_over(const char *arg, long long *num)
 {
-	int			i;
-	bool		minus;
+	int		i;
+	bool	minus;
 
 	i = 0;
+	minus = false;
 	if (arg[i] == '-' || arg[i] == '+')
 		if (arg[i++] == '-')
 			minus = true;
@@ -37,12 +38,12 @@ bool	check_num_and_over(const char *arg, long long *num)
 
 bool	check_dup(char **arg, long long *num, int i)
 {
-	int n;
+	int	n;
 
 	n = i + 1;
 	while (arg[n])
 	{
-		if (arg[n] == ft_itoa(*num))
+		if (ft_atoi(arg[n]) == *num)
 			return (true);
 		n++;
 	}
@@ -51,7 +52,7 @@ bool	check_dup(char **arg, long long *num, int i)
 
 void	check_args(char **args)
 {
-	int	i;
+	int			i;
 	long long	*num;
 
 	i = 1;

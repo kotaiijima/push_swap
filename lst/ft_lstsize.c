@@ -6,13 +6,13 @@
 /*   By: kiijima <kiijima@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 09:53:37 by kiijima           #+#    #+#             */
-/*   Updated: 2022/08/24 12:20:38 by kiijima          ###   ########.fr       */
+/*   Updated: 2022/08/25 22:24:40 by kiijima          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-int		ft_lstsize(t_list *lst)
+int	ft_lstsize(t_list *lst)
 {
 	int		i;
 	t_list	*tmp;
